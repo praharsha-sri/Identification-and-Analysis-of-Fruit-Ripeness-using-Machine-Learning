@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ripeness Result</title>
+    <style>
+        body {
+            background-image: url('/static/background.jpg'); /* Specify the path to your background image */
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Full viewport height */
+            margin: 0;
+            color: #000000; /* White text */
+        }
+    
+        h1 {
+            font-size: 48px; /* Increased font size */
+            margin-bottom: 30px; /* Increased margin */
+        }
+    
+        .result-container {
+            background-color: rgba(255, 99, 71, 0.7); /* Tomato color with transparency */
+            padding: 20px;
+            text-align: center;
+            margin-top: 30px;
+            border-radius: 10px;
+        }
+    
+        p {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    
+        .return-button {
+            background-color: #3498DB; /* Blue shade */
+            padding: 8px 16px; /* Adjusted padding */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            color: #ffffff; /* White text */
+        }
+    
+        .return-button:hover {
+            background-color: #2980B9; /* Darker blue shade */
+        }
+    </style>
+</head>
+<body>
+    <h1>Ripeness Identification Result</h1>
+    <div class="result-container">
+        <p>The ripeness stage is: <strong>{{ ripeness_stage }}</strong></p>
+    </div>
+    <a href="{{ url_for('index') }}" class="return-button">Return to Home Page</a>
+</body>
+</html>

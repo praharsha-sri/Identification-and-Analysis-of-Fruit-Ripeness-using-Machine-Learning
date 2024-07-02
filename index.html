@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Analyzer</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #FFA500, #FF0000);
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            color: #FFFFFF;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        #upload-section, #result-section {
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        #upload-section h2, #result-section h2 {
+            color: #FFA500;
+            margin-bottom: 10px;
+        }
+
+        input[type="file"] {
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #FFA500;
+            border: none;
+            color: #FFFFFF;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #FF8C00;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fruit Analyzer</h1>
+    <div id="container">
+        <div id="upload-section">
+            <h2>Upload an Image</h2>
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" id="file">
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+        <!-- Display uploaded image -->
+        <div id="result-section">
+            <h2>Uploaded Image</h2>
+            <img id="uploaded-image" src="" alt="Uploaded Image">
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const fileInput = document.getElementById('file');
+            const uploadedImage = document.getElementById('uploaded-image');
+            const captureBtn = document.getElementById('capture-btn');
+            const video = document.getElementById('video');
+
+            fileInput.addEventListener('change', () => {
+                const file = fileInput.files[0];
+                const imageUrl = URL.createObjectURL(file);
+                uploadedImage.src = imageUrl;
+            });
+
+        });
+    </script>
+</body>
+</html>

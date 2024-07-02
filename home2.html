@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Analyzer</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #030303;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        .header {
+            height: 100vh; /* Full viewport height */
+            background-image: url('static/background.jpg'); /* Specify the path to your watercolor background image */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            color: #000000; /* Bright yellow color for project name */
+            margin-bottom: 20px;
+        }
+
+        .header h5 {
+            background-color: #FFB6C1; /* Transparent tomato shade */
+            padding: 10px; /* Adjust padding as needed */
+            border-radius: 10px; /* Rounded corners */
+            margin-top: 10px; /* Adjust margin as needed */
+            max-width: 80%; /* Limit width for better readability */
+        }
+
+
+        .header h3 {
+            font-size: 24px;
+            color: #000000; /* Bright color for description */
+        }
+
+        .content {
+            background-color: #fff; /* Plain background */
+            color: #000; /* Black text */
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .option {
+            background-color: #FFB6C1; /* Light pink background */
+            padding: 40px 20px; /* Increased padding for larger boxes */
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px; /* Adjusted width */
+            text-align: center;
+            cursor: pointer; /* Make the whole box clickable */
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .option:hover {
+            transform: translateY(-5px); /* Slightly lift the box on hover */
+            background-color: #FF69B4; /* Slightly darker pink on hover */
+        }
+
+        .option img {
+            width: 80px; /* Increased size for bigger images */
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .option h2 {
+            color: #080808; /* White text */
+            margin-bottom: 20px;
+        }
+
+
+        .option a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to Fruit Analyzer</h1>
+        <h4><p>Fruit Analyzer is a tool for identifying fruits, assessing their ripeness, and predicting their shelf life using machine learning.</p>
+        <p>Upload an image of your fruit, and our system will provide accurate identification, ripeness stage, and shelf life estimate.</p></h4>
+    </div>
+    <div class="content">
+        <div class="container">
+            <div class="options">
+                <div class="option">
+                    <a href="/upload-fruit">
+                        <h2>Fruit Identification</h2>
+                    </a>
+                </div>
+                <div class="option">
+                    <a href="/upload-ripening">
+                        <h2>Ripening Identification</h2>
+                    </a>
+                </div>
+                <div class="option">
+                    <a href="/upload-shelf-life">
+                        <h2>Shelf Life Prediction</h2>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

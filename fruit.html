@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Fruit Image</title>
+    <style>
+        body {
+            background-image: url('/static/background.jpg'); /* Specify the path to your background image */
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Set full viewport height */
+        }
+
+        .container {
+            background-color: rgba(255, 99, 71, 0.7); /* Tomato color with transparency */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #fff; /* White text */
+            font-size: 48px; /* Increased font size */
+            margin-bottom: 30px; /* Increased margin */
+        }
+
+        .upload-form {
+            margin-top: 20px;
+        }
+
+        #file {
+            margin-bottom: 20px;
+        }
+
+        .upload-button {
+            background-color: #85C1E9; /* Light blue shade */
+            border: none;
+            color: #fff; /* White text */
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .upload-button:hover {
+            background-color: #3498DB; /* Darker blue shade */
+        }
+
+        .preview-container {
+            margin-top: 20px;
+        }
+
+        .preview-image {
+            max-width: 80%;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Upload Image for Fruit Prediction</h2>
+        <form action="/upload-fruit" method="POST" enctype="multipart/form-data" class="upload-form">
+            <input type="file" name="file" id="file" onchange="previewImage(event)">
+            <div class="preview-container">
+                <img id="preview" class="preview-image" src="" alt="Image Preview">
+            </div>
+            <button type="submit" class="upload-button">Upload</button>
+        </form>
+    </div>
+    <script>
+        function previewImage(event) {
+            const preview = document.getElementById('preview');
+            preview.src = URL.createObjectURL(event.target.files[0]);
+            preview.onload = () => URL.revokeObjectURL(preview.src); // Free memory
+        }
+    </script>
+</body>
+</html>
